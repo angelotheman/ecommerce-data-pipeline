@@ -32,6 +32,15 @@ services:
       - postgres
     restart: unless-stopped
 
+  jupyter:
+    container_name: jupyter_container
+    image: jupyter/minimal-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - jupyter:/home/joyvan/work
+    restart: unless-stopped 
+
 networks:
   postgres:
     driver: bridge
@@ -39,3 +48,4 @@ networks:
 volumes:
     postgres:
     pgadmin:
+    jupyter:
